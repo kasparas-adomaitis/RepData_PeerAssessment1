@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 # Peer Assessment 1
 
@@ -28,7 +23,7 @@ totalSteps <- tapply(data$steps,data$date,sum,simplify=TRUE)
 hist(totalSteps)
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 ```r
 mean(totalSteps, na.rm=TRUE)
@@ -58,7 +53,7 @@ meanInterval <- tapply(data$steps,INDEX=data$interval,FUN=mean,na.rm=TRUE)
 plot(meanInterval,type="l",xlab='Interval of the day', ylab='Average number of steps taken')
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png) 
 
 Finding which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps:
 
@@ -112,7 +107,7 @@ totalFilledSteps <- tapply(dataFilled$steps,dataFilled$date,sum,simplify=TRUE)
 hist(totalFilledSteps)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-7-1.png) 
 
 ```r
 mean(totalFilledSteps)
@@ -139,7 +134,7 @@ data$dayOfTheWeek <- weekdays(as.Date(data$date))
 ```
 
 In the next step we check the name of each weekday (from Monday to Sunday) and assign
-a corresponding description of that day - either 'weekday' or 'weekend' - using a for cycle
+a corresponding description of that day - either 'weekday' or 'weekend' - using a "for" cycle (do not mind Monday to Sunday enumerated in language of PC locale)
 
 ```r
 workday <- c('Pirmadienis','Antradienis','Trečiadienis','Ketvirtadienis','Penktadienis')
@@ -165,10 +160,11 @@ and finally we draw plots
 
 ```r
 par(mfrow=c(2,1))
-plot(x=names(meanWeekdayInterval),y=meanWeekdayInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekdays',type='l')
-plot(x=names(meanWeekendInterval),y=meanWeekendInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekends',type='l')
+plot(x=names(meanWeekdayInterval),y=meanWeekdayInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekdays',type='l',ylim=c(0,200))
+
+plot(x=names(meanWeekendInterval),y=meanWeekendInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekends',type='l',ylim=c(0,200))
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
 
 End.
