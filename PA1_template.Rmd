@@ -102,8 +102,9 @@ meanWeekendInterval <- tapply(dataWeekends$steps,INDEX=dataWeekends$interval,FUN
 and finally we draw plots
 ```{r}
 par(mfrow=c(2,1))
-plot(x=names(meanWeekdayInterval),y=meanWeekdayInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekdays',type='l')
-plot(x=names(meanWeekendInterval),y=meanWeekendInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekends',type='l')
+plot(x=names(meanWeekdayInterval),y=meanWeekdayInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekdays',type='l',ylim=c(0,200))
+
+plot(x=names(meanWeekendInterval),y=meanWeekendInterval,xlab = 'Interval of the day',ylab='Number of steps',main='Average number of steps taken on weekends',type='l',ylim=c(0,200))
 ```
 
 End.
